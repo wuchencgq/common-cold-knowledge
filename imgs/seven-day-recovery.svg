@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+  <!-- 背景 -->
+  <rect width="800" height="300" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="'Noto Serif SC', serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a73e8">感冒七天自愈时间轴</text>
+  <text x="400" y="65" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#666">"发于阳，七日愈；发于阴，六日愈" —— 张仲景《伤寒论》</text>
+  
+  <!-- 时间轴 -->
+  <line x1="100" y1="150" x2="700" y2="150" stroke="#666" stroke-width="3"/>
+  
+  <!-- 第1天 -->
+  <circle cx="100" cy="150" r="10" fill="#bbdefb" stroke="#1a73e8" stroke-width="2"/>
+  <text x="100" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a73e8">第1天</text>
+  <text x="100" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#1a73e8">初始感染</text>
+  <text x="100" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#1a73e8">怕冷、轻微不适</text>
+  
+  <!-- 第2天 -->
+  <circle cx="200" cy="150" r="10" fill="#bbdefb" stroke="#1a73e8" stroke-width="2"/>
+  <text x="200" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a73e8">第2天</text>
+  <text x="200" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#1a73e8">鼻炎症状</text>
+  <text x="200" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#1a73e8">清水样鼻涕</text>
+  
+  <!-- 第3天 -->
+  <circle cx="300" cy="150" r="10" fill="#ffccbc" stroke="#ff7043" stroke-width="2"/>
+  <text x="300" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ff7043">第3天</text>
+  <text x="300" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">化热阶段</text>
+  <text x="300" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">鼻涕变黄</text>
+  <text x="300" y="200" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">"伤寒三日，阳明脉大"</text>
+  
+  <!-- 第4天 -->
+  <circle cx="400" cy="150" r="10" fill="#ffccbc" stroke="#ff7043" stroke-width="2"/>
+  <text x="400" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ff7043">第4天</text>
+  <text x="400" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">咽喉炎症状</text>
+  <text x="400" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">咽痛、扁桃体肿大</text>
+  
+  <!-- 第5天 -->
+  <circle cx="500" cy="150" r="10" fill="#ffccbc" stroke="#ff7043" stroke-width="2"/>
+  <text x="500" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ff7043">第5天</text>
+  <text x="500" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">炎症高峰</text>
+  <text x="500" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">咳嗽、黄痰</text>
+  
+  <!-- 第6天 -->
+  <circle cx="600" cy="150" r="10" fill="#c8e6c9" stroke="#43a047" stroke-width="2"/>
+  <text x="600" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#43a047">第6天</text>
+  <text x="600" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#43a047">开始恢复</text>
+  <text x="600" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#43a047">痰变白、症状减轻</text>
+  <text x="600" y="200" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#43a047">"无热恶寒者，六日愈"</text>
+  
+  <!-- 第7天 -->
+  <circle cx="700" cy="150" r="10" fill="#c8e6c9" stroke="#43a047" stroke-width="2"/>
+  <text x="700" y="180" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#43a047">第7天</text>
+  <text x="700" y="120" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#43a047">基本痊愈</text>
+  <text x="700" y="100" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#43a047">可能有轻微咳嗽</text>
+  <text x="700" y="200" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#43a047">"发热恶寒者，七日愈"</text>
+  
+  <!-- 阶段标记 -->
+  <path d="M100,230 L250,230" stroke="#1a73e8" stroke-width="3"/>
+  <text x="175" y="250" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a73e8">风寒阶段（病毒感染）</text>
+  
+  <path d="M250,230 L550,230" stroke="#ff7043" stroke-width="3"/>
+  <text x="400" y="250" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ff7043">风热阶段（细菌感染）</text>
+  
+  <path d="M550,230 L700,230" stroke="#43a047" stroke-width="3"/>
+  <text x="625" y="250" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#43a047">恢复阶段</text>
+  
+  <!-- 小柴胡作用点 -->
+  <path d="M300,150 Q400,100 500,150" stroke="#43a047" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+  <text x="400" y="80" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#43a047">小柴胡作用阶段</text>
+</svg>
