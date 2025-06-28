@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>普通感冒正常路径</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Framer Motion -->
+  <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* 自定义样式 */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap');
+    
+    :root {
+      --primary-color: #1a73e8;
+      --secondary-color: #ff7043;
+      --tertiary-color: #43a047;
+      --background-color: #f8f9fa;
+      --text-color: #202124;
+      --light-text: #5f6368;
+    }
+    
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Noto Serif SC', serif;
+    }
+    
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(100px, auto);
+      gap: 1rem;
+    }
+    
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .gradient-bg-primary {
+      background: linear-gradient(135deg, var(--primary-color), #64b5f6);
+    }
+    
+    .gradient-bg-secondary {
+      background: linear-gradient(135deg, var(--secondary-color), #ffab91);
+    }
+    
+    .gradient-bg-tertiary {
+      background: linear-gradient(135deg, var(--tertiary-color), #a5d6a7);
+    }
+    
+    .mega-text {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      height: 100%;
+      width: 2px;
+      background-color: var(--primary-color);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -0.5rem;
+      top: 0.5rem;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+    }
+    
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted var(--primary-color);
+      cursor: help;
+    }
+    
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .card {
+        grid-column: span 12 !important;
+      }
+    }
+    
+    /* 动画类 */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* 引用样式 */
+    .quote-box {
+      border-left: 4px solid var(--secondary-color);
+      padding-left: 1rem;
+      font-style: italic;
+      margin: 1.5rem 0;
+    }
+    
+    /* 中医风格元素 */
+    .tcm-border {
+      border: 2px solid #8d6e63;
+      border-radius: 0.5rem;
+      background-color: #f5f5dc;
+      padding: 1rem;
+    }
+    
+    .tcm-text {
+      font-family: 'Noto Serif SC', serif;
+      color: #5d4037;
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <i class="fas fa-head-side-cough text-blue-600 text-2xl mr-2"></i>
+        <span class="text-xl font-bold text-blue-600">普通感冒正常路径</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#introduction" class="text-gray-600 hover:text-blue-600 transition">引言</a>
+        <a href="#process" class="text-gray-600 hover:text-blue-600 transition">感冒全过程</a>
+        <a href="#self-limiting" class="text-gray-600 hover:text-blue-600 transition">自限性</a>
+        <a href="#transformation" class="text-gray-600 hover:text-blue-600 transition">风寒转风热</a>
+        <a href="#recovery" class="text-gray-600 hover:text-blue-600 transition">恢复期</a>
+        <a href="#xiaochaihu" class="text-gray-600 hover:text-blue-600 transition">小柴胡</a>
+      </div>
+      <button class="md:hidden text-gray-600" id="mobile-menu-button">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div class="hidden md:hidden bg-white shadow-md" id="mobile-menu">
+      <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
+        <a href="#introduction" class="text-gray-600 hover:text-blue-600 transition py-2">引言</a>
+        <a href="#process" class="text-gray-600 hover:text-blue-600 transition py-2">感冒全过程</a>
+        <a href="#self-limiting" class="text-gray-600 hover:text-blue-600 transition py-2">自限性</a>
+        <a href="#transformation" class="text-gray-600 hover:text-blue-600 transition py-2">风寒转风热</a>
+        <a href="#recovery" class="text-gray-600 hover:text-blue-600 transition py-2">恢复期</a>
+        <a href="#xiaochaihu" class="text-gray-600 hover:text-blue-600 transition py-2">小柴胡</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="gradient-bg-primary text-white py-20 md:py-32">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="mega-text mb-6">普通感冒正常路径</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">探索感冒的发展过程、自限性特点和有效应对方法</p>
+    </div>
+  </header>
+
+  <!-- 主要内容 -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- 引言部分 -->
+    <section id="introduction" class="mb-20 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">引言</h2>
+      <div class="max-w-4xl mx-auto">
+        <p class="text-lg text-gray-700 mb-6">常常被问到这样的问题：</p>
+        <ul class="list-disc pl-8 text-lg text-gray-700 mb-6 space-y-2">
+          <li>我家孩子感冒厉害吗？</li>
+          <li>这样咳嗽没关系的吗？</li>
+          <li>怎么治疗两天后痰越来越多，是加重了吗？</li>
+        </ul>
+        <p class="text-lg text-gray-700 mb-6">这样的问题我们医生往往都要解释半天。今天就可以给大家统一回答一下。首先是这个<strong>"这个情况没关系的吗"</strong>。这个问题以后就别问我了，就算问我也是要么没有回应要么就是统一答案：</p>
+        
+        <div class="quote-box text-xl text-center font-bold text-red-600">
+          没事你来医院干嘛
+        </div>
+      </div>
+    </section>
+
+    <!-- 感冒全过程部分 -->
+    <section id="process" class="mb-20 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">呼吸道感染的全过程</h2>
+      <div class="max-w-4xl mx-auto mb-12">
+        <p class="text-lg text-gray-700 mb-6">为了说明感冒时各个阶段都发生了什么，我花了点时间粗略地画了张流程图，简要地说明呼吸道感染的全过程，以及发展恶化和转归。</p>
+      </div>
+      
+      <div class="mb-12 text-center">
+        <img src="imgs/cold-process-flowchart.svg" alt="呼吸道感染全过程流程图" class="max-w-full mx-auto">
+      </div>
+      
+      <div class="bento-grid">
+        <!-- 上下呼吸道分界图卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-5">
+          <h3 class="text-2xl font-bold mb-4 text-blue-600">上下呼吸道分界</h3>
+          <p class="text-gray-700 mb-4">上呼吸道指的是从鼻腔到咽喉这一段，咽喉就是分界线，咽喉以上就是上呼吸道，咽喉以下就是下呼吸道了。</p>
+          <div class="mt-4 text-center">
+            <img src="imgs/respiratory-tract-division.svg" alt="上下呼吸道分界示意图" class="max-w-full mx-auto">
+          </div>
+        </div>
+        
+        <!-- 感冒自愈时间轴卡片 -->
+        <div class="card gradient-bg-primary text-white p-6 col-span-12 md:col-span-7">
+          <h3 class="text-2xl font-bold mb-4">感冒的自愈时间</h3>
+          <p class="mb-4">在图中的"咽喉炎"一栏以上包括这一行的过程就是正常感冒的过程。较大概率是会自愈的。严谨一点来说，如果感染一直局限在上呼吸道，不发生并发症的情况下，一周就会痊愈。</p>
+          <div class="mt-4 text-center">
+            <img src="imgs/seven-day-recovery.svg" alt="感冒七天自愈时间轴" class="max-w-full mx-auto bg-white rounded-lg p-2">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 感冒的自限性部分 -->
+    <section id="self-limiting" class="mb-20 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">呼吸道感染的自限性</h2>
+      
+      <div class="bento-grid">
+        <!-- 自限性解释卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-7">
+          <h3 class="text-2xl font-bold mb-4 text-blue-600">感冒是自限性疾病</h3>
+          <p class="text-gray-700 mb-4">我们常听到这样的说法：</p>
+          <div class="quote-box">
+            感冒是自限性疾病，不用治疗会自愈的
+          </div>
+          <p class="text-gray-700 mb-4">这句话里面说的感冒是指上呼吸道感染。如果感染一直局限在上呼吸道，不发生并发症的情况下，一周就会痊愈。</p>
+          <p class="text-gray-700 mb-4">这样的结论并不是现代医学提出的。早在汉朝的张仲景就提出了：</p>
+          <div class="tcm-border">
+            <p class="tcm-text text-lg">病有发热恶寒者，发于阳也；无热恶寒者，发于阴也。发于阳，七日愈；发于阴，六日愈。</p>
+          </div>
+          <p class="text-gray-700 mt-4">感过冒的都知道，感冒初起的时候就会怕冷，有的会发热所以叫"发热恶寒"，有的不发热所以叫"无热恶寒"。不管怎样都有恶寒。用恶寒来代指感冒，因此，这段来自汉朝的大白话用我们现在的大白话说就是：<strong>会发热的感冒六天自己就好了，不发热的感冒七天自己就好了</strong>。</p>
+        </div>
+        
+        <!-- 自限性的局限卡片 -->
+        <div class="card gradient-bg-secondary text-white p-6 col-span-12 md:col-span-5">
+          <h3 class="text-2xl font-bold mb-4">自限性的局限</h3>
+          <p class="mb-4">但是：</p>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>如果上呼吸道感染都能自愈的话，就不存在鼻炎了，也不存在慢性咽炎了。有不少鼻炎都是有普通感冒演变来的。其原因很可能是普通感冒没有完全自愈，而是炎症慢性化便成了鼻炎。</li>
+            <li>再者；就算上呼吸道感染能百分百自愈的话，我们又如何能保证感染在一周内持续上呼吸道内，而不会下行感染到下呼吸道呢。如果下行感染变成支气管炎或者肺炎的话是不自愈的。</li>
+          </ul>
+          <div class="mt-6 p-4 bg-white rounded-lg">
+            <p class="text-gray-800 font-bold">关键问题：</p>
+            <p class="text-gray-800">如何确保感染局限在上呼吸道，不下行发展为更严重的疾病？</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 风寒转化为风热部分 -->
+    <section id="transformation" class="mb-20 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">风寒转化为风热过程</h2>
+      
+      <div class="max-w-4xl mx-auto mb-8">
+        <p class="text-lg text-gray-700 mb-6">细心的你一定发现了，我们粗略地把感冒分成了<span class="font-bold text-blue-600">风寒</span>和<span class="font-bold text-red-500">风热</span>，怎么去分别他们呢？</p>
+      </div>
+      
+      <div class="mb-12 text-center">
+        <img src="imgs/cold-to-heat-transformation.svg" alt="风寒转化为风热过程" class="max-w-full mx-auto">
+      </div>
+      
+      <div class="bento-grid">
+        <!-- 风寒特点卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-6">
+          <h3 class="text-2xl font-bold mb-4 text-blue-600">风寒（病毒感染）</h3>
+          <p class="text-gray-700 mb-4">我们可以简单的这么分，风寒大多为病毒感染(不包括高传染性的病毒），流清鼻涕或不流暂时不流鼻涕，怕冷。</p>
+          <p class="text-gray-700 mb-4">病毒感染以后鼻腔的毛细血管收缩，导致微循环变差，免疫屏障被破坏。</p>
+        </div>
+        
+        <!-- 风热特点卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-6">
+          <h3 class="text-2xl font-bold mb-4 text-red-500">风热（细菌感染）</h3>
+          <p class="text-gray-700 mb-4">继发细菌感染，细菌感染以后，白色的白细胞活化吞噬细菌转化为黄色的脓细胞，最后破裂，所以这个时候鼻涕就变成黄色的。</p>
+          <p class="text-gray-700 mb-4">仔细观察生活的朋友就会发现，一般感冒前两天是清水样鼻涕，往往第三天鼻涕开始变黄。所以《伤寒论》中说："伤寒三日，阳明脉大"。</p>
+        </div>
+        
+        <!-- 化热过程卡片 -->
+        <div class="card gradient-bg-secondary text-white p-6 col-span-12">
+          <h3 class="text-2xl font-bold mb-4">化热过程</h3>
+          <p class="mb-4">由风寒(病毒感染)转化为风热(细菌感染)的这一过程，在中医叫<span class="font-bold">化热</span>，化热后免疫器官扁桃体也会被激活，开始出现嗓子疼，咽中异物感，其实就是扁桃体发炎肿胀了。</p>
+          <p class="mb-4">这个时候的扁桃体上聚集了大量的免疫细胞，这些免疫细胞会把细菌吞噬掉，溶解掉，和细菌同归于尽。免疫细胞和细菌都死了以后肿就消了，黄鼻涕黄痰就也变成了白色。</p>
+          <p>这些鼻涕和涕其实就是<span class="font-bold">大量的腺体分泌物和免疫细胞细菌的尸体</span>。所以出现大量的白色鼻涕和痰说明了炎症已经消退。病原体被清除，这个病事实上已经好了。但依然会有咳嗽等症状。甚至咳嗽的听起来似乎更厉害了。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 恢复期注意事项部分 -->
+    <section id="recovery" class="mb-20 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">恢复期注意事项</h2>
+      
+      <div class="max-w-4xl mx-auto mb-8">
+        <p class="text-lg text-gray-700 mb-6">当出现大量的白色鼻涕和痰时，这都不是太大的问题，做好以下三点很快症状也会消失：</p>
+      </div>
+      
+      <div class="mb-12 text-center">
+        <img src="imgs/recovery-tips.svg" alt="恢复期注意事项" class="max-w-full mx-auto">
+      </div>
+      
+      <div class="bento-grid">
+        <!-- 忌口卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-4">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-utensils text-green-600 text-2xl mr-3"></i>
+            <h3 class="text-xl font-bold text-green-600">忌口</h3>
+          </div>
+          <p class="text-gray-700 mb-4">一定要忌口，高油高糖不但会使痰液增多不容易被咳出或吸收，还会增加重新感染的风险。</p>
+        </div>
+        
+        <!-- 适当饮水卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-4">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-tint text-blue-600 text-2xl mr-3"></i>
+            <h3 class="text-xl font-bold text-blue-600">适当饮水</h3>
+          </div>
+          <p class="text-gray-700 mb-4">不要盲目灌水，体内水分增多会影响内环境的渗透压，阻碍痰液的吸收代谢。原则上不口渴不过量饮水。</p>
+        </div>
+        
+        <!-- 合理用药卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-4">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-pills text-red-500 text-2xl mr-3"></i>
+            <h3 class="text-xl font-bold text-red-500">合理用药</h3>
+          </div>
+          <p class="text-gray-700 mb-4">适当吃一些中成药以帮助痰液的代谢。</p>
+          <div class="mt-2">
+            <p class="text-sm text-gray-600"><span class="font-bold">干姜半夏类</span>：能抑制腺体分泌新的痰液，但增加炎症风险、口干者不宜。适合痰液清稀如水的情况，如小青龙颗粒、半夏露等。</p>
+            <p class="text-sm text-gray-600 mt-2"><span class="font-bold">瓜蒌川贝类</span>：能稀释痰液，适合痰液很黏稠的情况，如川贝枇杷露、小儿止咳糖浆等。</p>
+            <p class="text-sm text-gray-600 mt-2"><span class="font-bold">桔梗杏仁类</span>：可以帮助痰液咳出，适合咳嗽比较费劲的情况，如急支糖浆等。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 小柴胡部分 -->
+    <section id="xiaochaihu" class="mb-20 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">强行自愈：小柴胡的作用</h2>
+      
+      <div class="max-w-4xl mx-auto mb-8">
+        <p class="text-lg text-gray-700 mb-6">有了上面的解释，聪明的你一定发现了一个bug。我们只要把感冒局限在上呼吸道。然后增强免疫力，几乎就能让感冒强行自愈了。那么我们怎样才能让感染局限在上呼吸道呢？</p>
+        <p class="text-lg text-gray-700 mb-6">咽喉就像兵家所言的要塞，是必须守住的关隘，而且是易守难功的那种。完全可以"一夫当关，万夫莫开"。这<span class="font-bold">一夫</span>是谁？ 他就是——<span class="font-bold text-green-600">小柴胡</span>。</p>
+      </div>
+      
+      <div class="mb-12 text-center">
+        <img src="imgs/xiaochaihu-guardian.svg" alt="小柴胡守卫咽喉关隘" class="max-w-full mx-auto">
+      </div>
+      
+      <div class="bento-grid">
+        <!-- 小柴胡作用卡片 -->
+        <div class="card gradient-bg-tertiary text-white p-6 col-span-12 md:col-span-7">
+          <h3 class="text-2xl font-bold mb-4">小柴胡的关键作用</h3>
+          <p class="mb-4">知识面比较广的朋友或许听过，小柴胡治半表半里证，就是说的咽喉以后是表，咽喉以下就是里，这个咽喉就是半表半里了。咽喉是真正的要塞。不紧紧在治疗感冒时至关重要，还在预防和治疗多种全身损害和免疫性疾病有关。</p>
+          <p class="mb-4">小柴胡就像关公拿着大刀站在你的咽扁桃体上，进可攻退可守一把大刀守卫着这个第一道防线的最重要的关隘。不管是什么感冒都可以服用一些小柴胡，虽然他不治流鼻涕等证，但他能让你只流鼻涕，当然有的时候他可能一个人势单力薄了些。我们可以配合其他药一起吃。</p>
+        </div>
+        
+        <!-- 小柴胡配合用药卡片 -->
+        <div class="card bg-white p-6 col-span-12 md:col-span-5">
+          <h3 class="text-2xl font-bold mb-4 text-green-600">小柴胡的配合用药</h3>
+          <ul class="list-disc pl-6 text-gray-700 space-y-4">
+            <li>
+              <span class="font-bold">表证重流鼻涕多</span>
+              <p class="mt-1">我们可以选一些治上呼吸道疾病的药和小柴胡一起吃。</p>
+            </li>
+            <li>
+              <span class="font-bold">炎症重</span>
+              <p class="mt-1">我们可以选用一些富含银花和鱼腥草的中成药一起吃。</p>
+            </li>
+            <li>
+              <span class="font-bold">已经是支气管炎</span>
+              <p class="mt-1">也能搭配使用治疗支气管炎的药断其后路。</p>
+            </li>
+          </ul>
+           <p class="text-gray-700 mt-6">如此配合下来，一动一静，一攻一守。就是一个字<span class="text-green-600 font-bold">稳</span>。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">普通感冒正常路径</h3>
+            <p class="text-gray-400">本网页提供普通感冒相关知识，仅供参考，不构成医疗建议。</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">快速链接</h3>
+            <ul class="space-y-2">
+              <li><a href="#introduction" class="text-gray-400 hover:text-white transition">引言</a></li>
+              <li><a href="#process" class="text-gray-400 hover:text-white transition">感冒全过程</a></li>
+              <li><a href="#self-limiting" class="text-gray-400 hover:text-white transition">自限性</a></li>
+              <li><a href="#transformation" class="text-gray-400 hover:text-white transition">风寒转风热</a></li>
+              <li><a href="#recovery" class="text-gray-400 hover:text-white transition">恢复期</a></li>
+              <li><a href="#xiaochaihu" class="text-gray-400 hover:text-white transition">小柴胡</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">免责声明</h3>
+            <p class="text-gray-400">本网页内容仅供学习参考，如有健康问题请咨询专业医生。</p>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>© 2023 普通感冒正常路径. 保留所有权利.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // 移动端菜单切换
+      document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // 滚动动画
+      function handleScrollAnimation() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        
+        elements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+      }
+      
+      // 初始检查
+      handleScrollAnimation();
+      
+      // 滚动时检查
+      window.addEventListener('scroll', handleScrollAnimation);
+      
+      // Framer Motion 动画
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.framerMotion) {
+          // 这里可以添加 Framer Motion 的动画效果
+          // 由于我们是通过 CDN 引入的，需要在页面加载完成后检查是否可用
+        }
+      });
+    </script>
+  </body>
+</html>
