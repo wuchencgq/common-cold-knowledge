@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">
+  <!-- 背景 -->
+  <rect width="600" height="300" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="300" y="40" font-family="'Noto Sans SC', sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#43a047">感冒恢复期注意事项</text>
+  
+  <!-- 忌口图标 -->
+  <circle cx="150" cy="120" r="50" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  
+  <!-- 食物图标 -->
+  <path d="M130,100 L170,100 L170,110 C170,125 155,135 150,135 C145,135 130,125 130,110 Z" fill="#fff" stroke="#43a047" stroke-width="2"/>
+  <path d="M140,100 L140,90 M150,100 L150,90 M160,100 L160,90" stroke="#43a047" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 禁止符号 -->
+  <circle cx="150" cy="120" r="35" fill="none" stroke="#e53935" stroke-width="2"/>
+  <line x1="125" y1="95" x2="175" y2="145" stroke="#e53935" stroke-width="2"/>
+  
+  <!-- 忌口文字 -->
+  <text x="150" y="180" font-family="'Noto Sans SC', sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#43a047">忌口</text>
+  <text x="150" y="200" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#666">高油高糖食物</text>
+  <text x="150" y="215" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#666">会增加痰液</text>
+  
+  <!-- 适当饮水图标 -->
+  <circle cx="300" cy="120" r="50" fill="#e3f2fd" stroke="#1a73e8" stroke-width="2"/>
+  
+  <!-- 水杯图标 -->
+  <path d="M280,100 L320,100 L315,140 L285,140 Z" fill="#fff" stroke="#1a73e8" stroke-width="2"/>
+  <path d="M290,100 L290,90 L310,90 L310,100" stroke="#1a73e8" stroke-width="2"/>
+  
+  <!-- 水波纹 -->
+  <path d="M285,120 Q290,115 295,120 Q300,125 305,120 Q310,115 315,120" fill="none" stroke="#1a73e8" stroke-width="2"/>
+  
+  <!-- 适当饮水文字 -->
+  <text x="300" y="180" font-family="'Noto Sans SC', sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a73e8">适当饮水</text>
+  <text x="300" y="200" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#666">不口渴不过量饮水</text>
+  <text x="300" y="215" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#666">避免影响痰液代谢</text>
+  
+  <!-- 合理用药图标 -->
+  <circle cx="450" cy="120" r="50" fill="#fff3e0" stroke="#ff7043" stroke-width="2"/>
+  
+  <!-- 药瓶图标 -->
+  <path d="M430,110 L470,110 L470,140 C470,145 465,150 450,150 C435,150 430,145 430,140 Z" fill="#fff" stroke="#ff7043" stroke-width="2"/>
+  <path d="M435,110 L435,100 L465,100 L465,110" stroke="#ff7043" stroke-width="2"/>
+  <path d="M440,100 L440,95 L460,95 L460,100" stroke="#ff7043" stroke-width="2"/>
+  
+  <!-- 药丸 -->
+  <circle cx="440" cy="125" r="5" fill="#ff7043"/>
+  <circle cx="450" cy="130" r="5" fill="#ff7043"/>
+  <circle cx="460" cy="125" r="5" fill="#ff7043"/>
+  
+  <!-- 合理用药文字 -->
+  <text x="450" y="180" font-family="'Noto Sans SC', sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ff7043">合理用药</text>
+  <text x="450" y="200" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#666">选择合适的中成药</text>
+  <text x="450" y="215" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#666">帮助痰液代谢</text>
+  
+  <!-- 底部说明 -->
+  <text x="300" y="250" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#666">恢复期症状虽有咳嗽，但病原体已被清除</text>
+  <text x="300" y="270" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#666">遵循以上建议，症状会很快消失</text>
+</svg>
