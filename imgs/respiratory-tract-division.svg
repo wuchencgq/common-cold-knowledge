@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <!-- 背景 -->
+  <rect width="400" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="200" y="30" font-family="'Noto Sans SC', sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a73e8">上下呼吸道分界示意图</text>
+  
+  <!-- 人体轮廓 -->
+  <path d="M200,70 Q230,80 240,110 Q250,140 250,170 Q250,200 240,230 L240,400 Q240,430 220,450 Q200,470 180,450 Q160,430 160,400 L160,230 Q150,200 150,170 Q150,140 160,110 Q170,80 200,70" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  
+  <!-- 头部轮廓 -->
+  <circle cx="200" cy="100" r="40" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
+  
+  <!-- 上呼吸道区域 -->
+  <path d="M190,120 Q200,125 210,120 L210,200 Q200,205 190,200 Z" fill="#bbdefb" stroke="#1a73e8" stroke-width="2"/>
+  <text x="240" y="160" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#1a73e8">上呼吸道</text>
+  <text x="240" y="180" font-family="'Noto Sans SC', sans-serif" font-size="12" fill="#1a73e8">（鼻腔、咽部）</text>
+  
+  <!-- 咽喉位置 -->
+  <circle cx="200" cy="200" r="15" fill="#ffccbc" stroke="#ff7043" stroke-width="2"/>
+  <text x="240" y="205" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" fill="#ff7043">咽喉</text>
+  <text x="240" y="225" font-family="'Noto Sans SC', sans-serif" font-size="12" fill="#ff7043">（上下呼吸道分界线）</text>
+  
+  <!-- 下呼吸道区域 -->
+  <path d="M190,215 Q200,220 210,215 L210,350 Q205,355 200,360 Q195,355 190,350 Z" fill="#ffcdd2" stroke="#e53935" stroke-width="2"/>
+  <path d="M200,300 L170,340" stroke="#e53935" stroke-width="2" fill="none"/>
+  <path d="M200,300 L230,340" stroke="#e53935" stroke-width="2" fill="none"/>
+  <text x="240" y="280" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#e53935">下呼吸道</text>
+  <text x="240" y="300" font-family="'Noto Sans SC', sans-serif" font-size="12" fill="#e53935">（气管、支气管、肺）</text>
+  
+  <!-- 标注线 -->
+  <line x1="100" y1="200" x2="185" y2="200" stroke="#ff7043" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="50" y="205" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#ff7043">分界线</text>
+  
+  <!-- 自限性区域标注 -->
+  <text x="100" y="160" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#1a73e8">自限性区域</text>
+  <text x="100" y="175" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#1a73e8">（7天可自愈）</text>
+  
+  <!-- 非自限性区域标注 -->
+  <text x="100" y="280" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#e53935">非自限性区域</text>
+  <text x="100" y="295" font-family="'Noto Sans SC', sans-serif" font-size="12" text-anchor="middle" fill="#e53935">（需要治疗）</text>
+  
+  <!-- 小柴胡守卫位置 -->
+  <circle cx="200" cy="200" r="25" fill="none" stroke="#43a047" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="100" y="230" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#43a047">小柴胡守卫位置</text>
+  
+  <!-- 底部说明 -->
+  <text x="200" y="450" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a73e8">感冒初期主要影响上呼吸道</text>
+  <text x="200" y="470" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#e53935">下行感染会导致支气管炎或肺炎</text>
+</svg>
